@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "deploy": "node server.js",
+    "build": "react-scripts build",
+    "createdb": "node create_db.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "datetime": "^0.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "react-icons": "^5.0.1",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
+  }
+}
