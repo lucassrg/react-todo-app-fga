@@ -9,6 +9,9 @@ const RolePermissionsCard = ({ default_role }) => {
     useEffect(() => {
     }, [role]);
 
+
+    
+
     return (
         <>
             <Card key={role.id} className="min-w-60 max-w-60">

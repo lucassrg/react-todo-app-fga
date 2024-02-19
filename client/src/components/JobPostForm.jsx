@@ -6,15 +6,6 @@ import ButtonWithPermission from "./ButtonWithPermissions";
 const JobPostForm = () => {
     const [selectedRole, setSelectedRole] = useState("Public");
 
-
-    function onCloseModal() {
-        setOpenModal(false);
-    }
-
-    function handleOpenModal(action) {
-        setOpenModal(true);
-    }
-
     const allowedBtnStyle = 'text-white bg-blue-700';
     const notAllowedBtnStyle = '';
 
@@ -67,13 +58,13 @@ const JobPostForm = () => {
 
                   <Card>
                     <div className="grid grid-rows-3 grid-cols-3 align-center gap-6 h-60">
-                        <ButtonWithPermission label={'Edit'} operation={'can_write'} role={selectedRole} />
-                        <ButtonWithPermission label={'Delete'} operation={'can_delete'} role={selectedRole} />
-                        <ButtonWithPermission label={'View Applications'} operation={'view_applications'} role={selectedRole} />
-                        <ButtonWithPermission label={'Save for Later'} operation={'can_save'} role={selectedRole} />
-                        <ButtonWithPermission label={'Share'} operation={'can_share'} role={selectedRole} />
-                        <ButtonWithPermission label={'Refer'} operation={'refer_friend'} role={selectedRole} />
-                        <ButtonWithPermission label={'Apply'} operation={'can_apply'} role={selectedRole} />
+                        <ButtonWithPermission label={'Edit'} relation={'can_write'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
+                        <ButtonWithPermission label={'Delete'} relation={'can_delete'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
+                        <ButtonWithPermission label={'View Applications'} relation={'view_applications'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
+                        <ButtonWithPermission label={'Save for Later'} relation={'can_save'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
+                        <ButtonWithPermission label={'Share'} relation={'can_share'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
+                        <ButtonWithPermission label={'Refer'} relation={'refer_friend'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
+                        <ButtonWithPermission label={'Apply'} relation={'can_apply'} subject={'role:'+selectedRole} object={'JobPost:'+jobDetails.id} />
                     </div>
                     </Card>
 

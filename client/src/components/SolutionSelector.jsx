@@ -1,12 +1,12 @@
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { Button, Tabs } from 'flowbite-react';
 import { TbSquareNumber1, TbSquareNumber2, TbSquareNumber3, TbSquareNumber4, TbSquareNumber5 } from "react-icons/tb";
 import { useSolution } from '../context/SolutionContext';
 import RoleList from './RoleList';
-import JobPostForm from './JobPostForm';
+const JobPostForm = lazy (() => import('./JobPostForm'));
 
 
 
@@ -73,7 +73,10 @@ const SolutionSelector = () => {
 
             </Tabs.Item>
             <Tabs.Item  title="Check Permissions" icon={TbSquareNumber3}>
-                <JobPostForm/>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <JobPostForm/>
+                </Suspense>
+                
            </Tabs.Item>
       {/* <Tabs.Item  title="Define Permissions" icon={TbSquareNumber4}>
       </Tabs.Item>  */}
